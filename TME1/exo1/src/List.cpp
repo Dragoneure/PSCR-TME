@@ -29,7 +29,6 @@ void Chainon::print (std::ostream & os) const {
 const std::string & List::operator[] (size_t index) const  {
 	Chainon * it = tete;
 	for (size_t i=0; i < index ; i++) {
-		if (it -> next == nullptr) {break;}
 		it = it->next;
 	}
 	return it->data;
