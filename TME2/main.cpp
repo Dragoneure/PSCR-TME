@@ -4,10 +4,12 @@
 #include <chrono>
 #include <vector>
 #include <string>
+#include "HashMap.hpp"
 
 int main () {
 	using namespace std;
 	using namespace std::chrono;
+	using namespace pr;
 
 	ifstream input = ifstream("WarAndPeace.txt");
 
@@ -21,6 +23,8 @@ int main () {
 	regex re( R"([^a-zA-Z])");
 
 	vector<pair<int,string>> map;
+
+	HashMap<string,int> hmap(10);
 
 	while (input >> word) {
 		// élimine la ponctuation et les caractères spéciaux
@@ -46,6 +50,10 @@ int main () {
 			map.push_back({1,word});
 			++nombre_lu;
 		}
+		int taille = hmap.get(word);
+		hmap.put(word, ++taille);
+
+
 	}
 	input.close();
 

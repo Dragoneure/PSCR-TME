@@ -1,0 +1,52 @@
+class iterator {
+	size_t index;
+	forward_list<Entry>::iterator lit;
+	buckets_t & buck;
+	public : 
+		iterator(size_t index, fw_list<>::iterator lit, buckets_t &buck) : index(index), lit(lit), buck(buck){}
+		
+		iterator& operator++(){
+			++lit;
+			if(lit == buck[index].end()) {
+				++index;
+				for (;index < buck.size() && buck[index].empty();++index) {/*NOP*/]
+				if (index < buck.size()) lit = buck[index.begin();
+			}
+			return *this;
+		}
+		
+		bool operator !=(const iterator &o) {
+			if (index == buck.size() && o.index == index) return false;
+			return index != o.index || lit != o.lit || &buck != &o.buck;
+		}
+		
+		Entry &operator*(){
+			return *lit;
+		}
+		
+		iterator begin() {
+			for (int index = 0; index<bucket.size(); index ++) {
+				if (!buckets[index].empty()) {
+					return iterator(index,buckets[index].begin(), buckets);
+				}
+			}
+			return end;
+		}
+		
+		iterator end() {
+			return iterator(bucket.size(),buckets[0].end(),buckets);
+		}
+		
+		/*postfixé*/
+		iterator & operator++(int) {
+			auto b4 = *this;
+			++(*this);
+			return b4;
+		}
+			
+			
+			
+	
+		
+		
+		
